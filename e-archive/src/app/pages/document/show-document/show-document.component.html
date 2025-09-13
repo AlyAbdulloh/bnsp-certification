@@ -1,0 +1,46 @@
+<!-- Start Breadcrumbs -->
+<app-breadcrumbs
+  title="ARSIP SURAT"
+  [breadcrumbItems]="breadCrumbItems"
+></app-breadcrumbs>
+<!-- End Breadcrumbs -->
+
+<div class="row mb-3">
+  <div class="col-12">
+    Nomor surat: <strong>{{ document.document_number }}</strong>
+    <br />
+    Kategori: <strong>{{ document.docCategory.name }}</strong>
+    <br />
+    Judul: <strong>{{ document.title }}</strong>
+    <br />
+    Waktu Pengarsipan: <strong>{{ document.created_at }}</strong>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 py-0">
+    <div class="card">
+      <div class="card-body">
+        <ngx-extended-pdf-viewer
+          [src]="pdfSrc + document.file_path"
+          [height]="'80vh'"
+          style="width: 100%"
+        ></ngx-extended-pdf-viewer>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="d-flex">
+      <button class="btn btn-primary me-2" (click)="goBack()">Kembali</button>
+      <button class="btn btn-secondary me-2" (click)="downloadDocument()">
+        Unduh
+      </button>
+      <button class="btn btn-warning" (click)="editDocument()">
+        Edit/Ganti File
+      </button>
+    </div>
+  </div>
+</div>

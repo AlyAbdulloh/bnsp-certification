@@ -1,0 +1,30 @@
+# Frontend
+e-archive/node_modules
+e-archive/.angular
+e-archive/dist
+
+# Backend
+e-archive-api/node_modules
+e-archive-api/.env.dev
+e-archive-api/.env.prod
+e-archive-api/logs/
+e-archive-api/uploads/documents/
+e-archive-api/*.log
+e-archive-api/npm-debug.log*
+e-archive-api/yarn-debug.log*
+e-archive-api/yarn-error.log*
+e-archive-api/pids/
+e-archive-api/*.pid
+e-archive-api/*.seed
+e-archive-api/*.pid.lock
+e-archive-api/package-lock.json
+e-archive-api/yarn.lock
+e-archive-api/.vscode/
+e-archive-api/.idea/
+e-archive-api/.DS_Store
+e-archive-api/*.suo
+e-archive-api/*.ntvs*
+e-archive-api/*.njsproj
+e-archive-api/*.sln
+e-archive-api/.npmrc
+e-archive-api/.yarnrc

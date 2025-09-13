@@ -1,0 +1,175 @@
+<!-- Start Breadcrumbs -->
+<app-breadcrumbs
+  title="KATEGORI SURAT"
+  [breadcrumbItems]="breadCrumbItems"
+></app-breadcrumbs>
+<!-- End Breadcrumbs -->
+
+<div class="row mb-3">
+  <div class="col-12">
+    Berikut adalah kategori yang bisa digunakan untuk melabeli surat.
+    <br />
+    Klik tombol "Tambah" untuk menambahkan kategori baru.
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card mb-3">
+      <div class="card-body">
+        <div id="customerList">
+          <div class="row g-4 mb-3">
+            <div class="col-12">
+              <div class="d-flex justify-content-sm-end">
+                <div class="search-box ms-2 w-100">
+                  <input
+                    type="text"
+                    class="form-control search"
+                    placeholder="Search..."
+                    (input)="search($event)"
+                  />
+                  <i class="ri-search-line search-icon"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-responsive table-card mt-3 mb-1">
+            <table class="table">
+              <thead>
+                <tr class="bg-light text-muted">
+                  <th>ID Kategori</th>
+                  <th>Nama Kategori</th>
+                  <th>Keterangan</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let data of documentCategories; let i = index">
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ data.name }}</td>
+                  <td>{{ data.description }}</td>
+                  <td>
+                    <div class="d-flex">
+                      <button
+                        type="button"
+                        class="btn btn-soft-danger btn-sm me-1"
+                        (click)="openModal(deleteModal, data.id)"
+                      >
+                        Hapus
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-soft-primary btn-sm me-1"
+                        (click)="editDocumentCategory(data.id)"
+                      >
+                        Edit
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="row justify-content-md-between align-items-md-center">
+            <div class="col col-sm-6">
+              <div
+                class="dataTables_info mb-2"
+                id="tickets-table_info"
+                role="status"
+                aria-live="polite"
+              >
+                Showing
+                {{ startIndex }} to {{ endIndex }} of {{ totalData }}
+                entries
+              </div>
+            </div>
+            <!-- Pagination -->
+            <div class="col col-sm-6">
+              <div class="text-sm-right float-end listjs-pagination">
+                <ngb-pagination
+                  [collectionSize]="totalData"
+                  [(page)]="currentPage"
+                  [pageSize]="pageSize"
+                  [maxSize]="3"
+                  (pageChange)="loadData()"
+                >
+                </ngb-pagination>
+              </div>
+            </div>
+            <!-- End Pagination -->
+          </div>
+        </div>
+      </div>
+      <!-- end card -->
+    </div>
+    <!-- end col -->
+  </div>
+  <!-- end col -->
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <button
+      type="button"
+      class="btn btn-success add-btn me-1"
+      (click)="addDocumentCategory()"
+    >
+      <i class="ri-add-line align-bottom me-1"></i>Tambah Kategori Baru
+    </button>
+  </div>
+</div>
+
+<!-- delete modal -->
+<ng-template #deleteModal let-modal>
+  <div class="modal-content">
+    <div class="modal-header">
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+        id="btn-close"
+        (click)="modal.dismiss('Cross click')"
+      ></button>
+    </div>
+    <div class="modal-body">
+      <div class="mt-2 text-center">
+        <lord-icon
+          src="assets/lordicon/bin.json"
+          trigger="loop"
+          colors="primary:#f7b84b,secondary:#f06548"
+          style="width: 100px; height: 100px"
+        ></lord-icon>
+        <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
+          <h4>Apa Anda yakin ?</h4>
+          <p class="text-muted mx-4 mb-0">
+            Apakah Anda yakin ingin menghapus Kategori Dokumen ini ?
+          </p>
+        </div>
+      </div>
+      <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
+        <button
+          type="button"
+          class="btn w-sm btn-primary"
+          id="delete-product"
+          (click)="modal.close('Close click')"
+        >
+          Batal
+        </button>
+        <button
+          type="button"
+          class="btn w-sm btn-danger"
+          id="delete-product"
+          (click)="deleteData(); modal.close('Close click')"
+        >
+          Ya!
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- /.modal-content -->
+</ng-template>
+
+<app-toasts aria-live="polite" aria-atomic="true"></app-toasts>

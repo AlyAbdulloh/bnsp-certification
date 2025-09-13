@@ -1,0 +1,114 @@
+<!-- Start Breadcrumbs -->
+<app-breadcrumbs
+  title="ARSIP SURAT"
+  [breadcrumbItems]="breadCrumbItems"
+></app-breadcrumbs>
+<!-- End Breadcrumbs -->
+
+<div class="container-fluid mb-4">
+  Unggah surat yang telah terbit pada form ini.
+  <br />
+  Catatan:
+  <ul>
+    <li>Gunakan file berformat PDF.</li>
+  </ul>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <form [formGroup]="documentForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="title" class="form-label"
+            >Nomor Surat <span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            id="document_number"
+            formControlName="document_number"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid':
+                isSubmitted && documentForm.get('document_number')?.errors
+            }"
+          />
+          <div class="invalid-feedback">
+            <span>Wajib diisi.</span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="doc_category_id" class="form-label"
+            >Kategori <span class="text-danger">*</span></label
+          >
+          <select
+            id="doc_category_id"
+            formControlName="doc_category_id"
+            class="form-select"
+            [ngClass]="{
+              'is-invalid':
+                isSubmitted && documentForm.get('doc_category_id')?.errors
+            }"
+          >
+            <option selected disabled>Pilih Kategori</option>
+            <option
+              *ngFor="let category of documentCategories"
+              [value]="category.id"
+            >
+              {{ category.name }}
+            </option>
+          </select>
+          <div class="invalid-feedback">
+            <span>Pilih kategori</span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="title" class="form-label"
+            >Judul <span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            id="title"
+            formControlName="title"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid': isSubmitted && documentForm.get('title')?.errors
+            }"
+          />
+          <div class="invalid-feedback">
+            <span>Wajib diisi.</span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="file" class="form-label"
+            >File Suart (PDF) <span class="text-danger">*</span></label
+          >
+          <input
+            type="file"
+            id="file"
+            accept="application/pdf"
+            class="form-control"
+            (change)="handleFileInput($event)"
+            [ngClass]="{
+              'is-invalid': isSubmitted && fileToUpload === null
+            }"
+          />
+          <div class="invalid-feedback">
+            <span>File Wajib diisi</span>
+          </div>
+          <div *ngIf="existingFileUrl">
+            <p>
+              File saat ini:
+              <a [href]="existingFileUrl" target="_blank">Lihat PDF</a>
+            </p>
+          </div>
+        </div>
+        <button type="button" class="btn btn-secondary me-2" (click)="back()">
+          Kembali
+        </button>
+        <button type="submit" class="btn btn-primary">Simpan</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<app-toasts aria-live="polite" aria-atomic="true"></app-toasts>

@@ -1,0 +1,54 @@
+<!-- Start Breadcrumbs -->
+<app-breadcrumbs
+  title="KATEGORI SURAT"
+  [breadcrumbItems]="breadCrumbItems"
+></app-breadcrumbs>
+<!-- End Breadcrumbs -->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <form [formGroup]="documentCategoryForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="title" class="form-label"
+            >Nama Kategori <span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            id="title"
+            formControlName="name"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid':
+                isSubmitted && documentCategoryForm.get('name')?.errors
+            }"
+          />
+          <div class="invalid-feedback">
+            <span>Wajib diisi.</span>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="title" class="form-label">Deskripsi</label>
+          <!-- <input
+            type="text"
+            id="title"
+            formControlName="description"
+            class="form-control"
+          /> -->
+          <textarea
+            class="form-control"
+            formControlName="description"
+            aria-label="With textarea"
+            rows="10"
+          ></textarea>
+        </div>
+        <button type="button" class="btn btn-primary me-2" (click)="back()">
+          kembali
+        </button>
+        <button type="submit" class="btn btn-success">Simpan</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<app-toasts aria-live="polite" aria-atomic="true"></app-toasts>
