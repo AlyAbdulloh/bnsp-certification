@@ -54,12 +54,12 @@ Pastikan sudah menginstall:
 ### <u>**HALAMAN UNGGAH SURAT**</u>   
 ![Screenshot Sertifikasi](img/halaman-unggah-surat.png)
 ### <u>**HALAMAN LIHAT SURAT**</u>   
-![Screenshot Sertifikasi](../Sertifikasi/img/halaman-lihat-surat.png)
+![Screenshot Sertifikasi](img/halaman-lihat-surat.png)
 ### <u>**ALERT HAPUS SURAT**</u>   
-![Screenshot Sertifikasi](../Sertifikasi/img/hapus-surat.png)
+![Screenshot Sertifikasi](img/hapus-surat.png)
 ### <u>**HALAMAN KATEGORI SURAT**</u>   
-![Screenshot Sertifikasi](../Sertifikasi/img/halaman-kategori-surat.png)
+![Screenshot Sertifikasi](img/halaman-kategori-surat.png)
 ### <u>**HALAMAN TAMBAH KATEGORI SURAT**</u>   
-![Screenshot Sertifikasi](../Sertifikasi/img/tambah-kategori.png)
+![Screenshot Sertifikasi](img/tambah-kategori.png)
 ### <u>**HALAMAN EDIT KATEGORI SURAT**</u>   
-![Screenshot Sertifikasi](../Sertifikasi/img/edit-kategori.png)
+![Screenshot Sertifikasi](img/edit-kategori.png)
