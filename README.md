@@ -50,7 +50,7 @@ Pastikan sudah menginstall:
 
 # **TAMPILAN SISTEM**
 ### <u>**HALAMAN ARSIP SURAT**</u>   
-![Screenshot Sertifikasi](../Sertifikasi/img/halaman-asip.png)
+![Screenshot Sertifikasi](../bnsp-certification/img/halaman-asip.png)
 ### <u>**HALAMAN UNGGAH SURAT**</u>   
 ![Screenshot Sertifikasi](../Sertifikasi/img/halaman-unggah-surat.png)
 ### <u>**HALAMAN LIHAT SURAT**</u>   
